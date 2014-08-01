@@ -376,6 +376,7 @@ private[db] class BoneCPApi(
     conf.getString("password").map(datasource.setPassword)
 
     // Pool configuration
+    datasource.setPoolName(dbName)
     datasource.setPartitionCount(conf.getInt("partitionCount").getOrElse(1))
     datasource.setMaxConnectionsPerPartition(conf.getInt("maxConnectionsPerPartition").getOrElse(30))
     datasource.setMinConnectionsPerPartition(conf.getInt("minConnectionsPerPartition").getOrElse(5))
